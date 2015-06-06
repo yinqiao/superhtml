@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+<canvas id="rectCanvas" width="200" height="100"></canvas>
+
+<div>
+    窗口的X，Y值：
+    <input type="text" id="input_window" value=""/><br/><br/>
+    canvas的X，Y值：
+    <input type="text" id="input_canvas" value=""/>
+</div>
+<script type="text/javascript">
+onload = function (){
+    draw();
+}
+function draw(){
+    /* 验证Canvas 元素是否存在，以及浏览器是否支持Canvas 元素 */
+    var canvas = document.getElementById('rectCanvas'); 
+    /* 创建 context 对象 */
+    if (!canvas || !canvas.getContext) {
+        return false;
+    } 
+    var ctx = canvas.getContext('2d'); // 画一个红色矩形
+    ctx.fillStyle = "#FF0000"; //采用fillStyle 方法将画笔颜色设置为红色
+    ctx.fillRect(0, 0, 150, 75);
+
+    drawScreen(ctx);
+
+    canvas.onclick = function(event) {
+        var loc = windowTocanvas(canvas, event.clientX, event.clientY)
+        var x = parseInt(loc.x);
+        var y = parseInt(loc.y);
+        document.getElementById("input_window").value = event.clientX + "--" + event.clientY;
+        document.getElementById("input_canvas").value = x + "--" + y;
+    }
+}
+
+function drawScreen(context) {
+    context.strokeStyle = "blue";
+    context.lineWidth = 10;
+    context.lineCap = 'square';
+    context.beginPath();
+    context.moveTo(0, 0);
+    context.lineTo(145, 0);
+    context.moveTo(0, 0);
+    context.lineTo(0, 70);
+    context.stroke();
+    context.closePath();
+}
+
+function windowTocanvas(canvas, x, y) {
+    var bbox = canvas.getBoundingClientRect();
+    return {
+        x: x - bbox.left * (canvas.width / bbox.width),
+        y: y - bbox.top * (canvas.height / bbox.height)
+    };
+
+ }
+
+</script>
+</div>
+<body>
+</body>
+</html>

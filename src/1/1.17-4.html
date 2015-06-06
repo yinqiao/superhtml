@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>第1章</title>
+    </head>
+
+    <body>
+        <script src="http://g.alicdn.com/kissy/k/1.4.0/seed-min.js"></script>
+        <script type="text/javascript">
+        KISSY.use('promise', function (S, Promise){
+            function getItem (){
+                var d = new Promise.Defer();
+                var promise = d.promise;
+                var data = {
+                    id: "2015-06-06"
+                };
+                d.resolve(data);
+                return promise;
+            }
+            var promiseTasks = getItem();
+            promiseTasks.then(function (res){
+                console.log(res)
+            });
+        })
+        </script>
+    </body>
+
+</html>

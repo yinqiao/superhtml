@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第14章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<script type="text/javascript">
+    var students = {
+        liyang: {
+            name: "liyang",
+            age: 17
+        },
+
+        lilei: {
+            name: "lilei",
+            age: 18
+        }
+
+    } //要存储的JSON对象
+    students = JSON.stringify(students); //将JSON对象转化成字符串
+    localStorage.setItem("students", students); //用localStorage保存转化好的的字符串
+
+
+    var students = localStorage.getItem("students");//取回students变量
+    students = JSON.parse(students);//把字符串转换成JSON对象
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第7章</title>
+    <style type="text/css">
+        ul,li{ padding:0; margin:0;list-style:none} 
+        .nav{width:510px; overflow:hidden;background: #3db9ea;color: #fff;} 
+        .nav li{ line-height:22px; float:left; padding:0 5px;height: 45px;line-height: 45px; display: inline-block; margin: 0 10px;} 
+        .nav li a{color: #fff;}
+        .nav li a:hover{ color:#F00} 
+        /* 对class=nav设置黑色边框，鼠标滑过超链接文字为红色 */ 
+         
+        nav{ background: #3db9ea;color: #fff;width:520px; overflow:hidden} 
+        nav a{ color:#fff; height: 45px;line-height: 45px; display: inline-block; margin: 0 10px;} 
+        /* 对nav设置红色边框，超链接位置为红色 */ 
+         
+        nav.bg{ background:#CCC} 
+        nav.bg li a{ color:#090} 
+        /* 对nav设置class=bg，设置背景为灰色，超链接位置为绿色 */ 
+    </style>
+    </head>
+<body>
+<div class="content">
+<p>传统 div ul li布局导航条效果</p> 
+<div class="nav"> 
+    <ul> 
+        <li>
+            <a href="/" class="header-link header-nav-link active">Home</a>
+        </li>
+        <li>
+            <a href="/snippets" class="header-link header-nav-link">Code Snippets</a>
+        </li>
+        <li>
+            <a href="/ui-kits" class="header-link header-nav-link">Interface Kits</a>
+        </li>
+        <li>
+            <a href="/faq" class="header-link header-nav-link">FAQ</a></li>
+        <li>
+            <a href="/search" class="header-link header-search-link" data-toggle="search">Search</a>
+        </li> 
+    </ul> 
+</div> 
+<p>html5 nav ul li布局导航条</p> 
+<nav class="header-nav">
+    <a href="/" class="header-link header-nav-link active">Home</a>
+    <a href="/snippets" class="header-link header-nav-link">Code Snippets</a>
+    <a href="/ui-kits" class="header-link header-nav-link">Interface Kits</a>
+    <a href="/faq" class="header-link header-nav-link">FAQ</a>
+    <a href="/search" class="header-link header-search-link" data-toggle="search">Search</a>
+</nav>
+</div>
+   
+<body>
+</body>
+</html>

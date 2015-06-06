@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第10章</title>
+    <style type="text/css">
+        .login-submit {
+            margin: 10px 0 0 40px;
+        }
+    </style>
+    </head>
+<body>
+<form name="input" action="html_form_action.php" method="post">
+    <div class="login-item">
+        <input type="hidden" id="savelogin" name="savelogin" value="0">
+    </div>
+    <div class="login-item">
+        <label for="idInput" class="placeholder" id="idPlaceholder">邮箱: </label>
+        <input class="formIpt formIpt-focus" tabindex="1" title="请输入帐号" id="idInput" name="username" type="text" maxlength="50" value="" autocomplete="on">
+    </div>
+    <div class="login-item">
+        <label for="pwdInput" class="placeholder" id="pwdPlaceholder">密码: </label>
+        <input class="formIpt formIpt-focus" tabindex="2" title="请输入密码" id="pwdInput" name="password" type="password">
+    </div>
+    <div class="login-item">
+        <label for="date" class="placeholder" id="pwdPlaceholder">日期: </label>
+        <input class="date formIpt-focus" tabindex="2" title="请输入日期" id="date" name="date" type="date">
+    </div>
+    <div class="login-submit">
+        <button id="loginBtn" class="btn btn-main btn-login" tabindex="6" type="submit">登&nbsp;&nbsp;录</button>
+        <button id="loginBtn" class="btn btn-main btn-login" tabindex="6" type="reset">重&nbsp;&nbsp;置</button>
+    </div>
+</form>
+<body>
+</body>
+</html>

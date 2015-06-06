@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+</head>
+<body style="position: absolute; padding:0; margin:0; height: 100%; width:100%" onload="onload()" onresize="resize()">
+    <canvas id="gameCanvas"></canvas>
+
+    <script type="text/javascript" charset="utf-8">
+    function onload() {
+        canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+        resize();
+    }
+    function resize() {
+        canvas.width = canvas.parentNode.clientWidth;
+        canvas.height = canvas.parentNode.clientHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#333333';
+        ctx.fillRect(canvas.width / 3, canvas.height / 3, canvas.width / 3,
+        canvas.height / 3);
+    }
+    </script>
+</body>
+</html>

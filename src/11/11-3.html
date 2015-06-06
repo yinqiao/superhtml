@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第11章</title>
+    <style type="text/css">
+        
+    </style>
+
+    </head>
+<body>
+<iframe src="./frame/frame_a.html" allowtransparency="true" style="background-color=transparent" title="test" frameborder="0" width="470" height="308" scrolling="no" onload="javascript:SetWinHeight(this)"></iframe>
+
+<script type="text/javascript">
+function SetWinHeight(obj) {
+    var win = obj;
+    if (document.getElementById) {
+        if (win && !window.opera) {
+            debugger
+            if (win.contentDocument && win.contentDocument.body.offsetHeight){
+                win.height = win.contentDocument.body.offsetHeight;
+            }else if (win.Document && win.Document.body.scrollHeight){
+                win.height = win.Document.body.scrollHeight;
+            }
+        }
+    }
+}
+</script>
+
+
+<!-- <iframe src="./frame/frame_a.html" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="iFrameHeight()" ></iframe>
+
+<script type="text/javascript" language="javascript"> 
+function iFrameHeight() {
+    var ifm = document.getElementById("iframepage");
+    var subWeb = document.frames ? document.frames["iframepage"].document: ifm.contentDocument;
+    if (ifm != null && subWeb != null) {
+        ifm.height = subWeb.body.scrollHeight;
+    }
+} 
+</script>  -->
+
+
+
+</body>
+</html>

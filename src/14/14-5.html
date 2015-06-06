@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第14章</title>
+    <script src="http://g.alicdn.com/kissy/k/1.4.0/seed-min.js"></script>
+</head>
+<body>
+<article>
+    <section>
+        <p>
+            <strong>说明：</strong>
+            在两个以上窗口或新标签页中打开此页面并在其中一窗口中输入信息并按回车，消息会即时传递其它窗口中
+        </p>
+        <div>
+            <p>
+                <label for="data">输入测试内容</label>
+                <input type="text" name="data" value="" placeholder="change me" id="data"
+                />
+            </p>
+            <p id="fromEvent">等待从其它窗口发送的容……</p>
+        </div>
+    </section>
+</article>
+<script>
+KISSY.use("node",function(S){
+    var dataInput = document.getElementById('data'),
+    output = document.getElementById('fromEvent');
+    S.one(window).on('storage',function(event) {
+        if (event.key == 'storage-event-test') {
+            output.innerHTML = event.newValue;
+        }
+    });
+    S.one("#data").on('keyup',function(event) {
+        try {
+            localStorage.setItem("storage-event-test", event.newValue);
+            return true;
+        } catch (e) {
+            return false;
+        }
+        if (event.key == 'storage-event-test') {
+            output.innerHTML = event.newValue;
+        }
+    });
+})
+</script>
+</body>
+</html>

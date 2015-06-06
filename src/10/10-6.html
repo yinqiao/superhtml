@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第10章</title>
+    
+</head>
+<body>
+<form name="input" action="html_form_action.php" method="post">
+    <input type="hidden" name="userid" value="5392802"/>
+    <div class="login-item">
+        <label for="nick">姓名：<input autofocus class="testClass" id="nick" name="nick"/></label>
+    </div>
+    <div class="login-item">
+        <label for="pinyin">拼音：<input class="testClass" id="pinyin" name="pinyin"/></label>
+    </div>
+    <div class="login-item">
+        <label for="password">密码：<input class="testClass" id="password" disabled name="password"/></label>
+    </div>
+    <div class="login-item">
+        <label for="city">城市：<input class="testClass" type="text" name="city" readonly="readonly"  value="北京"/></label>
+    </div>
+    <div class="login-submit">
+        <button type="submit">提交</button>
+    </div>
+</form>
+<script src="js/jquery-1.4.3.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("input[class='testClass']").keypress(function(e) {
+        var keyCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+        // 判断所按是否方向右键
+        if (keyCode == 39) {
+            keyCode == 9;
+        }
+        // 判断所按是否回车键 FireFox下事件的keyCode 是只读的，不能修改
+        if (keyCode == 13){
+            keyCode == 9;
+            // 获取表单中的所有输入框
+            var inputs = $(":input[class='testClass']"); 
+            // 获取当前焦点输入框所处的位置
+            var idx = inputs.index(this); 
+            // 判断是否是最后一个输入框
+            if (idx == inputs.length - 1) {
+                // 取消默认的提交行为
+                return false; 
+            } else {
+                inputs[idx + 1].focus(); // 设置焦点
+                inputs[idx + 1].select(); // 选中
+            }
+            // 取消默认的提交行为
+            return false; 
+        }
+    });
+});
+</script>
+<body>
+</body>
+</html>

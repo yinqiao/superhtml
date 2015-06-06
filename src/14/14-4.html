@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>第14章</title>
+        <!-- include Bootstrap CSS for layout -->
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container">
+            <form method="post" class="form-horizontal">
+                <fieldset>
+                    <legend>表单</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="type">必填</label>
+                        <div class="controls">
+                            <select name="type" id="type">
+                                <option value="">请选择</option>
+                                <option value="general">普通</option>
+                                <option value="sales">特价</option>
+                                <option value="support">优惠</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="name">姓名</label>
+                        <div class="controls">
+                            <input class="input-xlarge" type="text" name="name" id="name" value=""
+                            maxlength="50">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email">电子邮件</label>
+                        <div class="controls">
+                            <input class="input-xlarge" type="text" name="email" id="email" value=""
+                            maxlength="150">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="message">信息</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge" name="message" id="message">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox">
+                                <input name="subscribe" id="subscribe" type="checkbox">
+                                提交
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-actions">
+                    <input type="submit" name="submit" id="submit" value="Send" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <script src="//code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $(document).ready(function() {
+                /* 
+                * 判断是否支持localstorage 
+                */
+                if (localStorage) {
+                    /* 
+                    * 读出localstorage中的值 
+                    */
+                    if (localStorage.type) {
+                        $("#type").find("option[value=" + localStorage.type + "]").attr("selected", true);
+                    }
+                    if (localStorage.name) {
+                        $("#name").val(localStorage.name);
+                    }
+                    if (localStorage.email) {
+                        $("#email").val(localStorage.email);
+                    }
+                    if (localStorage.message) {
+                        $("#message").val(localStorage.message);
+                    }
+                    if (localStorage.subscribe === "checked") {
+                        $("#subscribe").attr("checked", "checked");
+                    }
+                    /* 
+                    * 当表单中的值改变时,localstorage的值也改变 
+                    */
+                    $("input[type=text],select,textarea").change(function() {
+                        $this = $(this);
+                        localStorage[$this.attr("name")] = $this.val();
+                    });
+                    $("input[type=checkbox]").change(function() {
+                        $this = $(this);
+                        localStorage[$this.attr("name")] = $this.attr("checked");
+                    });
+                    $("form")
+                    /* 
+                    * 如果表单提交，则调用clear方法 
+                    */
+                    .submit(function() {
+                        localStorage.clear();
+                    }).change(function() {
+                        console.log(localStorage);
+                    });
+                }
+            });
+        </script>
+
+    </body>
+</html>
+

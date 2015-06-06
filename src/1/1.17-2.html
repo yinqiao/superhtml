@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>第1章</title>
+</head>    
+<body>
+<script src="http://g.alicdn.com/??kissy/k/1.4.14/seed-min.js"></script>
+<script type="text/javascript">
+KISSY.use('node, event, base',function (S, Node, Event, Base) {
+
+    "use strict";
+
+    var EMPTY = '';
+    var $ = Node.all;
+
+    var loadBase = Base.extend({
+
+        initializer: function () {
+            var self = this;
+            self.f1();
+        },
+
+        f1: function (){
+            var self = this;
+            console.log("这是函数f1");
+            setTimeout(function(){
+                self.fire('done');
+            }, 1000);
+        },
+
+        f2: function (){
+            console.log("这是回调函数f2");
+        }
+    });
+
+    var loadbase1 = new loadBase();
+    loadbase1.on('done', function (){
+        loadbase1.f2();
+    });
+
+});
+</script>
+</body>
+
+</html>

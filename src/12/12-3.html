@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+
+<canvas id="rectCanvas" width='400' height="300">
+    your browser doesn't support the HTMl5 elemnt canvas.
+</canvas>
+
+<script type="text/javascript">
+onload = function (){
+    drawRadian();
+}
+function drawRadian(){
+    var context = document.getElementById('rectCanvas').getContext('2d');
+    context.beginPath();
+    context.strokeStyle = "rgb(0,0,0)";
+    context.arc(100,100,100,0,2*Math.PI,true);
+    context.closePath();
+    context.fillStyle = '#f5cf3e';
+    context.fill();    
+
+    context.beginPath();
+    context.arc(50,75,25,0,2*Math.PI,true);
+    context.fillStyle = '#bb751b';
+    context.fill();
+
+    context.beginPath();
+    context.arc(50,75,20,0,2*Math.PI,true);
+    context.fillStyle = '#fff';
+    context.fill();
+
+    context.beginPath();
+    context.arc(50,85,10,0,2*Math.PI,true);
+    context.fillStyle = '#5a2414';
+    context.fill();
+
+    context.beginPath();
+    context.arc(150,75,25,0,2*Math.PI,true);
+    context.fillStyle = '#bb751b';
+    context.fill();
+
+    context.beginPath();
+    context.arc(150,75,20,0,2*Math.PI,true);
+    context.fillStyle = '#fff';
+    context.fill();
+
+    context.beginPath();
+    context.arc(150,85,10,0,2*Math.PI,true);
+    context.fillStyle = '#5a2414';
+    context.fill();
+
+    context.beginPath();
+    context.arc(100,125,10,0,2*Math.PI,true);
+    context.fillStyle = 'rgb(177,94,33)';
+    context.fill();
+
+    context.beginPath();
+    context.strokeStyle = "rgb(177,94,33)";
+    context.lineWidth = 5;
+    context.arc(100,150,25,Math.PI/6,5*Math.PI/6,false);
+
+    context.stroke();
+
+}
+</script>
+</div>
+<body>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第6章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+    <div class="content">
+        <label for="favorite_team">我最爱的球队：</label> 
+        <input type="text" name="team" id="favorite_team"> 
+
+        <br>
+
+        <datalist> 
+            <option>Detroit Lions</option> 
+            <option>Detroit Pistons</option> 
+            <option>Detroit Red Wings</option> 
+            <option>Detroit Tigers</option> 
+            <!-- etc... --> 
+        </datalist>
+
+        <label for="favorite_team">我最爱的球队：</label> 
+            <input type="text" name="team" id="favorite_team" list="team_list"> 
+            <datalist id="team_list"> 
+            <option>Detroit Lions</option> 
+            <option>Detroit Pistons</option> 
+            <option>Detroit Red Wings</option> 
+            <option>Detroit Tigers</option> 
+        </datalist> 
+
+
+    </div>
+</body>
+</html>

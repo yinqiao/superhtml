@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+</head>    
+<body>
+    <script src="http://g.alicdn.com/kissy/k/1.4.0/seed-min.js"></script>
+    <script type="text/javascript">
+        KISSY.use("event", function(S, Event) {
+            function Custom(id){
+                this.id = id;
+                this.publish("run",{
+                    bubbles:1
+                });
+            }
+
+            S.augment(Custom, Event.Target);
+
+            var f1 = new Custom("f1");
+
+            var f2 = new Custom("f2");
+
+            f1.addTarget(f2);
+
+            f2.on("run",function(e){
+                console.log(e.target.id +" fires event run"); // => c1 fires event run
+            });
+
+            f1.fire("run");
+        });
+
+
+        // KISSY.use('event', function (S, Event){
+        //     // 定义 Dog 类
+        //     function Dog(name) {
+        //         this.name = name;
+        //         this.publish("walk",{
+        //             bubbles:1
+        //         });
+        //     }
+        //     // 让 Dog 成为事件目标
+        //     S.augment(Dog, Event.Target);
+        //     // 给 Dog 添加 run 方法
+        //     S.augment(Dog, {
+        //        run: function() {
+        //            // 触发 running 事件
+        //            this.fire('running', {speed: '80km/h'});
+        //        }
+        //     });
+        //     var dog = new Dog('Lady Gogo');
+        //     // 添加监听函数
+        //     dog.on('running', function(ev) {
+        //         // 注意 ev 的参数传递大使身份
+        //         console.log(this.name + ' is running now. Its speed is ' + ev.speed);
+        //     });
+        //     // 让可爱的小狗跑起来吧
+        //     dog.run();
+        //     dog.on("walk",function(e){
+        //         console.log(e.target.name +" fires event walk"); 
+        //     });
+        //     dog.fire("walk");
+
+        // })
+    </script>
+</body>
+
+</html>

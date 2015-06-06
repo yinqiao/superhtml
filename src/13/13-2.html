@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第13章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+<p id="demo">点击这个按钮，获得您的坐标：</p>
+<button onclick="getLocation()">试一下</button>
+</div>
+
+<script type="text/javascript">
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var a = "Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+    x.innerHTML = a;
+    console.log(a)
+}
+
+function showError(result){
+    console.log(result)
+}
+    
+</script>
+<body>
+</body>
+</html>

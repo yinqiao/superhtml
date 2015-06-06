@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+    .m-btn {
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 4px;
+        width: 45px;
+        height: 30px;
+        border: 0 none;
+        border-radius: 2px;
+        color: #fff;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 30px;
+        transition: background 1s ease;
+        -webkit-appearance: none;
+        outline: 0
+    }
+    .m-md-btn {
+        min-width: 150px;
+        height: 42px;
+        font-size: 20px;
+        line-height: 42px
+    }
+    .m-md-btn:disabled,.m-large-btn:disabled {
+        font-size: 16px
+    }
+    .m-btn-info {
+        background-color: #47abef
+    }
+    .m-btn-info:active {
+        background-color: #3291d1
+    }
+    </style>
+    </head>
+<body>
+<div class="content">
+
+<canvas width=200 height=200 id="rectCanvas"></canvas> 
+<div>
+    <button id="saveImageBtn" class="m-btn m-md-btn m-btn-info">保存图片</button>
+    <button id="downloadImageBtn" class="m-btn m-md-btn m-btn-info">下载图片</button> 
+</div>
+
+<script type="text/javascript">
+onload = function (){
+    draw();
+    var saveButton = document.getElementById("saveImageBtn"); 
+    bindButtonEvent(saveButton, "click", saveImageInfo); 
+    var dlButton = document.getElementById("downloadImageBtn"); 
+    bindButtonEvent(dlButton, "click", saveAsLocalImage); 
+}
+function draw() {
+    var canvas = document.getElementById("rectCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgba(125, 46, 138, 0.5)";
+    ctx.fillRect(25, 25, 100, 100);
+    ctx.fillStyle = "rgba( 0, 146, 38, 0.5)";
+    ctx.fillRect(58, 74, 125, 100);
+    ctx.fillStyle = "rgba( 0, 0, 0, 1)"; 
+    ctx.fillText("将画布输出为PNG图片文件", 50, 50);
+}
+
+function bindButtonEvent(element, type, handler) {
+    if (element.addEventListener) {
+        element.addEventListener(type, handler, false);
+    } else {
+        element.attachEvent('on' + type, handler);
+    }
+}
+
+function saveImageInfo() {
+    var mycanvas = document.getElementById("rectCanvas");
+    var image = mycanvas.toDataURL("image/png");
+    var w = window.open('about:blank', 'image from canvas');
+    w.document.write("<img src='" + image + "' alt='from canvas'/>");
+}
+
+function saveAsLocalImage() {
+    var myCanvas = document.getElementById("rectCanvas");
+    var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image; // it will save locally 
+}
+
+</script>
+</div>
+<body>
+</body>
+</html>

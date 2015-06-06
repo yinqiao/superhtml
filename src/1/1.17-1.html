@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>第1章</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+        function f2(){
+            console.log("这是回调函数f2");
+        }
+        function f1(callback){ 
+            console.log("1");
+            setTimeout(function () { 
+                // f1的任务代码 
+                callback(); 
+            }, 1000); 
+            // 主要逻辑code
+            console.log(2)
+        }
+        f1(f2);
+        </script>
+    </body>
+
+</html>

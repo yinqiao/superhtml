@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+
+<canvas id="rectCanvas" width='400' height="300">
+    your browser doesn't support the HTMl5 elemnt canvas.
+</canvas>
+
+<script type="text/javascript">
+onload = function (){
+    drawRadian();
+}
+function drawRadian(){
+    var ctx = document.getElementById('rectCanvas').getContext('2d');
+    ctx.beginPath();
+
+    var linear = ctx.createLinearGradient(100,100,200,100); 
+    linear.addColorStop(0,'#f6e98d'); 
+    linear.addColorStop(0.5,'#f4c736'); 
+    linear.addColorStop(1,'#e7a01d'); 
+
+    // linear.addColorStop(0.99,'#a8672b'); 
+    // linear.addColorStop(1,'rgba(88,35,18,0)');
+
+    var radial = ctx.createRadialGradient(55,55,10,55,55,20); //重合的圆心坐标 
+    // var radial = ctx.createRadialGradient(75,75,55,55,55,0); 
+    radial.addColorStop(0,'#f6e98d'); 
+    radial.addColorStop(0.5,'#f4c736'); 
+    radial.addColorStop(0.9,'#e7a01d'); 
+    radial.addColorStop(1,'#a8672b');  
+
+    // ctx.fillStyle = linear; //把渐变赋给填充样式 
+    ctx.fillStyle = radial; //把渐变赋给填充样式 
+    ctx.fillRect(0,0,150,150); 
+    ctx.stroke();
+}
+</script>
+</div>
+<body>
+</body>
+</html>

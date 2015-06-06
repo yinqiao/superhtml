@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+
+<canvas id="rectCanvas" width='400' height="300">
+    your browser doesn't support the HTMl5 elemnt canvas.
+</canvas>
+
+<script type="text/javascript">
+onload = function (){
+    drawRadian();
+}
+function drawRadian(){
+    var canvas = document.getElementById("rectCanvas");
+    if(canvas){
+        var ctx = canvas.getContext('2d');
+        //设置字体样式
+        ctx.font = "30px Courier New";
+        //设置字体填充颜色
+        ctx.fillStyle = "#5a2413";
+        //从坐标点(50,50)开始绘制文字
+        ctx.fillText("让世界触手可行", 50, 50);
+
+        //设置字体样式
+        ctx.font = "30px Courier New";
+        //设置字体颜色
+        ctx.strokeStyle = "blue";
+        //从坐标点(50,50)开始绘制文字
+        ctx.strokeText("用足迹点亮人生", 50, 100);
+    }
+}
+</script>
+</div>
+<body>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>第12章</title>
+    <style type="text/css">
+        
+    </style>
+    </head>
+<body>
+<div class="content">
+<canvas id="rectCanvas" width="200" height="100"></canvas>
+<h2>用canvas绘制矩形</h2>
+<script type="text/javascript">
+onload = function (){
+    draw();
+}
+function draw(){
+    /* 验证Canvas 元素是否存在，以及浏览器是否支持Canvas 元素 */
+    var canvas = document.getElementById('rectCanvas'); 
+    /* 创建 context 对象 */
+    if (!canvas || !canvas.getContext) {
+        return false;
+    } 
+    var ctx = canvas.getContext('2d'); // 画一个红色矩形
+    ctx.fillStyle = "#FF0000"; //采用fillStyle 方法将画笔颜色设置为红色
+    ctx.fillRect(0, 0, 150, 75);
+}
+</script>
+</div>
+<body>
+</body>
+</html>

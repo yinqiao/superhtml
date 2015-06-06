@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>list-style-type www.51obj.cn/</title>
+<style type="text/css">
+ul{background:#ddd; border: dotted 1px #666;}
+p{font-size:12px; text-align:right;}
+</style>
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id); 
+}
+window.onload=function(){
+	$('selType').onchange=function(){
+		$('ul').style.listStyleType=this.options[this.selectedIndex].value;
+	}
+}
+</script>
+</head>
+
+<body>
+<label for="selType">请选择列表类型</label>
+<select id="selType">
+	<option value="disc">disc</option>
+	<option value="circle">circle</option>
+	<option value="square">square</option>
+	<option value="decimal">decimal</option>
+	<option value="lower-roman">lower-roman</option>
+	<option value="upper-roman">upper-roman</option>
+	<option value="lower-alpha">lower-alpha</option>
+	<option value="upper-alpha">upper-alpha</option>
+	<option value="none">none</option>
+</select>
+<ul id="ul">
+	<li>asp.net</li>
+	<li>C#</li>
+	<li>CSS</li>
+	<li>javascript</li>
+	<li>ajax</li>
+	<li>SQL</li>
+	<li>html</li>
+	<li>jQuery</li>
+	<li>asp</li>
+</ul>
+<p><a href="http://www.51obj.cn/" title="找对象">www.51obj.cn</a>强力驱动……</p>
+</body>
+</html>
